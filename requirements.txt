@@ -1,1 +1,9 @@
-streamlit
+streamlit==1.45.1
+streamlit_folium==0.25.0
+folium==0.19.6
+geodatasets==2024.8.0
+geopandas==1.1.0
+pandas==2.2.3
+koreanize-matplotlib==0.1.1
+matplotlib==3.10.3
+
