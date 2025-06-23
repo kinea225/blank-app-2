@@ -81,7 +81,7 @@ def create_map():
     merged = gdf.merge(fire_counts, left_on="CTP_KOR_NM", right_on="시도_정규화", how="left")
     merged["발생건수"] = merged["발생건수"].fillna(0)
     
-    m = folium.Map(location=[36, 127.5], zoom_start=5, control_scale=True)
+    m = folium.Map(location=[36, 127.5], zoom_start=7, control_scale=True)
     
     # # 로딩이 너무 오래 걸림
     # folium.Choropleth(
