@@ -1,10 +1,8 @@
 streamlit
 streamlit_folium
 folium
-folium.plugins
 pandas
-matplotlib.pyplot
+matplotlib
 koreanize_matplotlib
 geopandas
 geodatasets
-folium.features
