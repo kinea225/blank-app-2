@@ -22,6 +22,7 @@ name_map = {
     "경기": "경기도",
     "강원도": "강원특별자치도",  # 또는 "강원도"
     "충북": "충청북도",
+    "충남": "충청남도",
     "전북": "전라북도",
     "전남": "전라남도",
     "경북": "경상북도",
@@ -75,11 +76,12 @@ def create_map():
 
     gdf_names = list(gdf['CTP_KOR_NM'])
     fire_counts['시도_정규화'] = fire_counts['시도'].apply(lambda x: find_full_name(x, gdf_names))
+    fire_counts['시도_정규화'] =fire_counts.groupby(['시도 정규화']).sum()
     st.dataframe(fire_counts)
     merged = gdf.merge(fire_counts, left_on="CTP_KOR_NM", right_on="시도_정규화", how="left")
     merged["발생건수"] = merged["발생건수"].fillna(0)
     
-    m = folium.Map(location=[36, 127.5], zoom_start=8, control_scale=True)
+    m = folium.Map(location=[36, 127.5], zoom_start=5, control_scale=True)
     
     # # 로딩이 너무 오래 걸림
     # folium.Choropleth(
@@ -107,4 +109,5 @@ def create_map():
 
     return m
 map = create_map()
+
 folium_static(map)
