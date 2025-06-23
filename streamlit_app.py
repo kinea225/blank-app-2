@@ -76,7 +76,7 @@ def create_map():
 
     gdf_names = list(gdf['CTP_KOR_NM'])
     fire_counts['시도_정규화'] = fire_counts['시도'].apply(lambda x: find_full_name(x, gdf_names))
-    fire_counts['시도_정규화'] =fire_counts.groupby(['시도_정규화']).sum()
+    fire_counts =fire_counts.groupby(['시도_정규화']).sum()
     st.dataframe(fire_counts)
     merged = gdf.merge(fire_counts, left_on="CTP_KOR_NM", right_on="시도_정규화", how="left")
     merged["발생건수"] = merged["발생건수"].fillna(0)
