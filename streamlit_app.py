@@ -81,17 +81,17 @@ def create_map():
     
     m = folium.Map(location=[36.5, 127.5], zoom_start=6, control_scale=True)
     
-    # 로딩이 너무 오래 걸림
-    folium.Choropleth(
-        geo_data=merged,
-        data=merged,
-        columns=["CTP_KOR_NM", "발생건수"],
-        key_on="feature.properties.CTP_KOR_NM",
-        fill_color="YlOrRd",
-        fill_opacity=0.7,
-        line_opacity=0.2,
-        legend_name="화재 발생 건수"
-    ).add_to(m)
+    # # 로딩이 너무 오래 걸림
+    # folium.Choropleth(
+    #     geo_data=merged,
+    #     data=merged,
+    #     columns=["CTP_KOR_NM", "발생건수"],
+    #     key_on="feature.properties.CTP_KOR_NM",
+    #     fill_color="YlOrRd",
+    #     fill_opacity=0.7,
+    #     line_opacity=0.2,
+    #     legend_name="화재 발생 건수"
+    # ).add_to(m)
     
     tooltip = GeoJsonTooltip(
         fields=["CTP_KOR_NM", "발생건수", "피해면적합계"],
