@@ -106,3 +106,5 @@ def create_map():
     ).add_to(m)
 
     return m
+
+folium_static(create_map())
